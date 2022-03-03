@@ -6,6 +6,7 @@ import com.citizenweb.training.nonreactiveapp.service.PersonService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,8 @@ public class Launcher implements CommandLineRunner {
         List<Person> personListFromDatabase = personRepository.findAll();
 
         for (Person person : personListFromDatabase) {
+            var dbEntries = personListFromDatabase.size();
+            Assert.isTrue(size == dbEntries, () -> dbEntries + " Person objects found in DB");
             personNameList.add(person.getName());
             personAgeList.add(person.getAge());
         }

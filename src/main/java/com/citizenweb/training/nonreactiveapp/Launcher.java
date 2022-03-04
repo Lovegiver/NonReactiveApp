@@ -27,9 +27,9 @@ public class Launcher implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         long timeAtStart = System.currentTimeMillis();
-        log.info("Launching [ ReactiveApp ]");
+        log.info("Launching [ NonReactiveApp ]");
 
-        int size = 100_000;
+        int size = 10_000;
         char charToFind = 'O';
 
         List<String> personNameList = new ArrayList<>(size);
